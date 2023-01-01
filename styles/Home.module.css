@@ -6,6 +6,10 @@
   background-color: blue;
 }
 
+.link {
+  flex: 1;
+}
+
 .map {
   background-color: red;
   flex: 1;

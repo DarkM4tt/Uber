@@ -1,6 +1,7 @@
 import tw from "tailwind-styled-components";
 import Map from "./components/Map";
 import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
@@ -19,20 +20,24 @@ export default function Home() {
 
         {/* ActionButtons */}
         <ActionButtons>
-          <ActionButton>
-            <Link href="/search">
+          <Link href="/search" className={styles.link}>
+            <ActionButton>
               <ActionButtonImage src="https://i.ibb.co/cyvcpfF/uberx.png" />
               Ride
-            </Link>
-          </ActionButton>
-          <ActionButton>
-            <ActionButtonImage src="https://i.ibb.co/n776JLm/bike.png" />
-            Wheels
-          </ActionButton>
-          <ActionButton>
-            <ActionButtonImage src="https://i.ibb.co/5RjchBg/uberschedule.png" />
-            Reserve
-          </ActionButton>
+            </ActionButton>
+          </Link>
+          <Link href="/" className={styles.link}>
+            <ActionButton>
+              <ActionButtonImage src="https://i.ibb.co/n776JLm/bike.png" />
+              Wheels
+            </ActionButton>
+          </Link>
+          <Link href="/" className={styles.link}>
+            <ActionButton>
+              <ActionButtonImage src="https://i.ibb.co/5RjchBg/uberschedule.png" />
+              Reserve
+            </ActionButton>
+          </Link>
         </ActionButtons>
 
         {/* InputButton */}

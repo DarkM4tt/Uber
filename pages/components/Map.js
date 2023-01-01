@@ -5,7 +5,7 @@ import mapboxgl from "!mapbox-gl";
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZGFya200dHQiLCJhIjoiY2xjYjBwMDVqMjh1NzNwbW9na3l0MzIwNSJ9.Im1auHGrEJQQzcVfrB7pcQ";
 
-const Map = () => {
+const Map = ({ pickupCoordinates, dropoffCoordinates }) => {
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: "map",
@@ -13,7 +13,17 @@ const Map = () => {
       center: [-99.29011, 39.39172],
       zoom: 3,
     });
-  });
+    if (pickupCoordinates) {
+      addToMap(map, pickupCoordinates);
+    }
+    if (dropoffCoordinates) {
+      addToMap(map, dropoffCoordinates);
+    }
+  }, [pickupCoordinates, dropoffCoordinates]);
+
+  const addToMap = (map, coordinates) => {
+    const marker1 = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+  };
 
   return <Wrapper id="map"></Wrapper>;
 };
