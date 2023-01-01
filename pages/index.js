@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <Wrapper>
       <Map />
+
       <ActionItems>
         {/* Header */}
         <Header>
@@ -18,12 +19,12 @@ export default function Home() {
 
         {/* ActionButtons */}
         <ActionButtons>
-          <Link href="/search">
-            <ActionButton>
+          <ActionButton>
+            <Link href="/search">
               <ActionButtonImage src="https://i.ibb.co/cyvcpfF/uberx.png" />
               Ride
-            </ActionButton>
-          </Link>
+            </Link>
+          </ActionButton>
           <ActionButton>
             <ActionButtonImage src="https://i.ibb.co/n776JLm/bike.png" />
             Wheels
