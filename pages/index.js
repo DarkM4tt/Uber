@@ -2,8 +2,29 @@ import tw from "tailwind-styled-components";
 import Map from "./components/Map";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import { auth } from "./firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    return onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser({
+          name: user.displayName,
+          photoUrl: user.photoURL,
+        });
+      } else {
+        setUser(null);
+        router.push("/login");
+      }
+    });
+  }, []);
+
   return (
     <Wrapper>
       <Map />
@@ -13,8 +34,8 @@ export default function Home() {
         <Header>
           <UberLogo src="https://i.ibb.co/84stgjq/uber-technologies-new-20218114.jpg" />
           <Profile>
-            <Name>Prabhat Mani Srivastava</Name>
-            <UserImage src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" />
+            <Name>{user && user.name}</Name>
+            <UserImage src={user && user.photoUrl} />
           </Profile>
         </Header>
 
