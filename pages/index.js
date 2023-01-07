@@ -35,7 +35,10 @@ export default function Home() {
           <UberLogo src="https://i.ibb.co/84stgjq/uber-technologies-new-20218114.jpg" />
           <Profile>
             <Name>{user && user.name}</Name>
-            <UserImage src={user && user.photoUrl} />
+            <UserImage
+              src={user && user.photoUrl}
+              onClick={() => signOut(auth)}
+            />
           </Profile>
         </Header>
 
@@ -93,7 +96,7 @@ const Name = tw.div`
 `;
 
 const UserImage = tw.img`
-  h-12 w-12 rounded-full border-gray-200 p-px
+  h-12 w-12 rounded-full border-gray-200 p-px cursor-pointer
 `;
 
 const ActionButtons = tw.div`
