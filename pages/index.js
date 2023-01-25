@@ -2,7 +2,7 @@ import tw from "tailwind-styled-components";
 import Map from "./components/Map";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { auth } from "./firebase";
+import { auth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
