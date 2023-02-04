@@ -102,11 +102,11 @@ flex flex-col flex-1
 `;
 
 const Input = tw.input`
-my-2 h-10 rounded-2 border-none outline-none bg-gray-300 rounded p-2
+my-2 h-10 rounded-2 border-none outline-none bg-gray-200 rounded p-2
 `;
 
 const PlusIcon = tw.img`
-w-10 h-10 ml-3 rounded-full object-contain bg-gray-300 p-1
+w-10 h-10 ml-3 rounded-full object-contain bg-gray-200 p-1
 `;
 
 const SavedPlaces = tw.div`
